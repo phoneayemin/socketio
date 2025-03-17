@@ -22,7 +22,7 @@ io.on("connection", (socket) => {
   // Send message to a specific room
   socket.on("send-message", ({ room, message }) => {
     console.log(`Message to ${room}:`, message);
-    io.to(room).emit("message", { sender: socket.id, message });
+    io.to(room).emit("send-message", { sender: socket.id, message });
   });
 
   // Leave a room
