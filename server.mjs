@@ -25,6 +25,10 @@ io.on("connection", (socket) => {
     io.to(room).emit("send-message", { sender: socket.id, message });
   });
 
+  // logging
+  socket.on("log", (message) => {
+    console.log("Log:", message);
+  });
   // Leave a room
   socket.on("leave-room", (room) => {
     socket.leave(room);
